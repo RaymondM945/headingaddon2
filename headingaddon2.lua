@@ -39,26 +39,26 @@ local testheal = "Test Main"
 local followtarget = nil
 f:SetScript("OnUpdate", function(self, elapsed)
 	if IsInGroup() then
-		box.texture:SetColorTexture(0, 0, 0, 1)
-		if UnitExists("party1") and UnitAffectingCombat("party1") then
-			box.texture:SetColorTexture(1, 0.5, 1, 1)
-			if not followtarget then
-				box.texture:SetColorTexture(0.5, 0.5, 0, 1)
-			elseif not UnitIsUnit("target", "party1target") then
-				box.texture:SetColorTexture(1, 0, 0.5, 1)
-			elseif UnitExists("target") then
-				local health = UnitHealth("target")
-				local maxHealth = UnitHealthMax("target")
-				local hpPercent = (health / maxHealth) * 100
-				if hpPercent < 70 then
-					if not IsCurrentSpell("Attack") then
-						box.texture:SetColorTexture(0.5, 0, 0, 1)
+		if not checkforheal then
+			box.texture:SetColorTexture(0, 0, 0, 1)
+			if UnitExists("party1") and UnitAffectingCombat("party1") then
+				box.texture:SetColorTexture(1, 0.5, 1, 1)
+				if not followtarget then
+					box.texture:SetColorTexture(0.5, 0.5, 0, 1)
+				elseif not UnitIsUnit("target", "party1target") then
+					box.texture:SetColorTexture(1, 0, 0.5, 1)
+				elseif UnitExists("target") then
+					local health = UnitHealth("target")
+					local maxHealth = UnitHealthMax("target")
+					local hpPercent = (health / maxHealth) * 100
+					if hpPercent < 70 then
+						if not IsCurrentSpell("Attack") then
+							box.texture:SetColorTexture(0.5, 0, 0, 1)
+						end
 					end
 				end
 			end
-		end
 
-		if not checkforheal then
 			local groupPets = {}
 			for i = 0, 4 do
 				local petUnit = (i == 0) and "playerpet" or "partypet" .. i
