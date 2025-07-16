@@ -17,6 +17,9 @@ local colorMap = {
 	partypet2 = { 0.5, 0.5, 1 },
 	partypet3 = { 0.5, 1, 0.5 },
 	partypet4 = { 1, 1, 0.5 },
+	attack = { 0.5, 0, 0 },
+	follow = { 0.5, 0.5, 0 },
+	switch = { 1, 0, 0.5 },
 }
 
 local colorMap2 = {
@@ -29,6 +32,9 @@ local colorMap2 = {
 	partypet2 = { 1, 0, 1 },
 	partypet3 = { 0.5, 0, 0.5 },
 	partypet4 = { 0, 1, 1 },
+	attack = { 0.5, 0, 0 },
+	follow = { 0.5, 0.5, 0 },
+	switch = { 1, 0, 0.5 },
 }
 
 local Healingpercentage = { 90, 80, 70, 60, 50 }
@@ -143,6 +149,9 @@ local colorMapOrder = {
 	"partypet3",
 	"partypet4",
 	"none",
+	"attack",
+	"follow",
+	"switch",
 }
 
 local dropdown = CreateFrame("Frame", "MyColorDropdown", UIParent, "UIDropDownMenuTemplate")
