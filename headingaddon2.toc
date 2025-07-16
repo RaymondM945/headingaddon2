@@ -1,0 +1,7 @@
+## Interface: 11507
+## Title: Headingaddon
+## Notes: Displays a black box in the center
+## Author: You
+## Version: 1.0
+
+headingaddon2.lua
