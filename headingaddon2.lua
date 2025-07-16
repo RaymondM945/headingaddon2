@@ -43,11 +43,12 @@ local selectedpercentage = Healingpercentage[1]
 local checkforheal = false
 local testheal = "Test Main"
 local followtarget = nil
+local combatmode = false
 f:SetScript("OnUpdate", function(self, elapsed)
 	if IsInGroup() then
 		if not checkforheal then
 			box.texture:SetColorTexture(0, 0, 0, 1)
-			if UnitExists("party1") and UnitAffectingCombat("party1") then
+			if UnitExists("party1") and UnitAffectingCombat("party1") and not combatmode then
 				box.texture:SetColorTexture(1, 0.5, 1, 1)
 				if not followtarget then
 					box.texture:SetColorTexture(0.5, 0.5, 0, 1)
@@ -321,4 +322,24 @@ frame:SetScript("OnEvent", function(self, event, arg1)
 		print("Stopped following")
 		followtarget = nil
 	end
+end)
+
+-- Create the checkbox frame
+local checkbox = CreateFrame("CheckButton", "MyAddonCheckbox", UIParent, "UICheckButtonTemplate")
+
+-- Position it under dropdown3
+checkbox:SetPoint("TOPLEFT", dropdown3, "BOTTOMLEFT", 10, 0)
+
+-- Set checkbox label text
+_G[checkbox:GetName() .. "Text"]:SetText("Combat Mode")
+
+-- Set initial state
+checkbox:SetChecked(combatmode)
+
+-- Hook function when the checkbox is clicked
+checkbox:SetScript("OnClick", function(self)
+= self:GetChecked()
+	combatmode = self:GetChecked()
+	print("Checkbox is", combatmode and "checked" or "unchecked")
+	-- Store checked value or update behavior
 end)
