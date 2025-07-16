@@ -338,7 +338,6 @@ checkbox:SetChecked(combatmode)
 
 -- Hook function when the checkbox is clicked
 checkbox:SetScript("OnClick", function(self)
-= self:GetChecked()
 	combatmode = self:GetChecked()
 	print("Checkbox is", combatmode and "checked" or "unchecked")
 	-- Store checked value or update behavior
