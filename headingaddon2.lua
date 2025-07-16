@@ -48,7 +48,7 @@ f:SetScript("OnUpdate", function(self, elapsed)
 	if IsInGroup() then
 		if not checkforheal then
 			box.texture:SetColorTexture(0, 0, 0, 1)
-			if UnitExists("party1") and UnitAffectingCombat("party1") and not combatmode then
+			if UnitExists("party1") and UnitAffectingCombat("party1") and combatmode then
 				box.texture:SetColorTexture(1, 0.5, 1, 1)
 				if not followtarget then
 					box.texture:SetColorTexture(0.5, 0.5, 0, 1)
