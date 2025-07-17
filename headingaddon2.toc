@@ -1,6 +1,6 @@
 ## Interface: 11507
-## Title: Headingaddon
-## Notes: Displays a black box in the center
+## Title: Headingaddon2
+## Notes: just healing
 ## Author: You
 ## Version: 1.0
 
