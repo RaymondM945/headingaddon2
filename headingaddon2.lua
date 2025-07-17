@@ -111,7 +111,7 @@ f:SetScript("OnUpdate", function(self, elapsed)
 			print("lowest Hp in the group is " .. lowestunitname .. " With hp: " .. lowesthp)
 			local mana = UnitPower("player", 0)
 
-			if mana >= 0 and lowesthp < 100 then
+			if mana >= 0 and lowesthp < 85 then
 				local spellName = UnitCastingInfo("player")
 				local usable, nomana = IsUsableSpell("Holy Light")
 				if lowesthp <= selectedpercentage then
